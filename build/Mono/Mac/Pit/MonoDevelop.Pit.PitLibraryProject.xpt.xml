@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<Template Originator="Community" Created="10/6/2010" LastModified="10/6/2010">
+
+  <!-- Template Header -->
+  <TemplateConfiguration>
+    <_Name>Pit Library Project</_Name>
+    <Icon>md-project-library</Icon>
+    <_Description>Create a F# library project</_Description>
+    <_Category>F#/Pit</_Category>
+    <LanguageName>F#</LanguageName>
+  </TemplateConfiguration>
+
+  <!-- Actions -->
+  <Actions>
+    <Open filename = "Lib.fs"/>
+  </Actions>
+
+  <!-- Template Content -->
+  <Combine name = "${ProjectName}" directory = ".">
+    <Options>
+      <StartupProject>${ProjectName}</StartupProject>
+    </Options>
+
+    <Project name = "${ProjectName}" directory = "."  type="Pit">
+      <Options Target="Library" PauseConsole="False"/>
+      <References>
+        <Reference type="Gac" refto="System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+		<Reference type="Package" refto="FSharp.Core.dll">
+		</Reference>		
+        <Reference type="Package" refto="Pit.Core.dll">
+		</Reference>		
+        <Reference type="Package" refto="Pit.Common.dll">
+		</Reference>		
+       </References>
+      <Files>
+        <File name = "Lib.fs" AddStandardHeader="True">
+<![CDATA[namespace ${NameSpace}
+module Lib]]></File>
+	    <File name = "AssemblyInfo.fs" AddStandardHeader="True">
+<![CDATA[namespace ${NameSpace}
+open System.Reflection;
+open System.Runtime.CompilerServices;
+open System.Runtime.InteropServices;
+open Pit
+// General Information about an assembly is controlled through the following
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[<assembly: AssemblyTitle("${ProjectName}")>]
+[<assembly: AssemblyDescription("")>]
+[<assembly: AssemblyConfiguration("")>]
+[<assembly: AssemblyCompany("Pit")>]
+[<assembly: AssemblyProduct("${ProjectName}")>]
+[<assembly: AssemblyCopyright("Copyright © Pit 2011")>]
+[<assembly: AssemblyTrademark("")>]
+[<assembly: AssemblyCulture("")>]
+[<assembly: PitAssembly()>]
+
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[<assembly: ComVisible(false)>]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers
+// by using the ‘*’ as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[<assembly: AssemblyVersion("1.0.0.0")>]
+[<assembly: AssemblyFileVersion("1.0.0.0")>]
+()]]></File>			
+      </Files>
+    </Project>
+  </Combine>
+</Template>

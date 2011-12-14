@@ -1,0 +1,32 @@
+<Addin id="Pit" 
+       namespace="MonoDevelop" 
+       name="PitBinding" 
+       author="Pit Community" 
+       copyright="???" 
+       url="http://pitfw.posterous.com" 
+       description="Pit F# to js compiler project extension" 
+       category="Pit" 
+       version="2.8.4">
+  <Dependencies>
+    <Addin id="Core" version="2.8.4"/>
+    <Addin id="Ide" version="2.8.4"/>
+    <Addin id="SourceEditor2" version="2.8.4"/>
+  </Dependencies>
+  <Extension path="/MonoDevelop/ProjectModel/MSBuildItemTypes">
+    <DotNetProjectSubtype
+				guid="{4bfe0cb4-a329-4ee4-a1e8-259b3443f0b1}"
+				type="MonoDevelop.Pit.PitProject"
+		/>
+  </Extension>
+  
+  <Extension path="/MonoDevelop/ProjectModel/ProjectBindings">
+    <ProjectBinding id="PitProject" class="MonoDevelop.Pit.PitProjectBinding" />
+  </Extension>
+  <Extension path="/MonoDevelop/ProjectModel/SerializableClasses">
+    <DataType class="MonoDevelop.Pit.PitProject" />
+	<DataType class="MonoDevelop.Pit.Command" />
+  </Extension>
+  <Extension path="/MonoDevelop/Ide/ProjectTemplates">
+    <ProjectTemplate id="PitLibraryProject" resource="MonoDevelop.Pit.PitLibraryProject.xpt.xml"/>
+  </Extension>
+</Addin>

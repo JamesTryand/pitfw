@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define AppCode = "Pit" ?>
+  <?define AppProductCode = "{7995128c-e247-40cb-848f-e75cae9d0a9e}" ?>
+  <?define AppVersionMajor = "0" ?>
+  <?define AppVersionMinor = "0" ?>
+  <?define AppVersionPatch = "0" ?>
+  <?define AppVersionBuild = "2" ?>
+  <?define AppVersion = "$(var.AppVersionMajor).$(var.AppVersionMinor).$(var.AppVersionPatch).$(var.AppVersionBuild)" ?>
+  <?define AppManufacturer = "Pit" ?>
+  <?define DefaultCulture = "en-US" ?>
+  <Product Id="$(var.AppProductCode)" Name="$(var.AppCode)" Language="1033" Version="$(var.AppVersion)" Manufacturer="$(var.AppManufacturer)" UpgradeCode="{a4d3e935-7bbc-4c55-975d-690c551ddd22}">
+    <Package Id="*" InstallerVersion="200" Compressed="yes" />
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <Property Id="INSTALLLEVEL" Value="100" />
+    <Property Id="ALLUSERS" Value="1" />
+    <Property Id="TEST" Value="NO" />
+    <Icon Id="icon.ico" SourceFile="..\..\icons\16.ico" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir" DiskId="1">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="APPLICATIONROOTDIRECTORY" Name="$(var.AppManufacturer)">
+          <Directory Id="vNumber" Name="0.2">
+            <Directory Id="BinLocation" Name="bin"></Directory>
+            <Directory Id="VsixLocation" Name="Vsix"></Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.AppManufacturer)"/>
+      </Directory>
+    </Directory>
+
+    <!-- Step 2: Add files to your installer package -->
+    <DirectoryRef Id="BinLocation">
+      <Component Id="Compiler" Guid="{74a78a90-747a-4b46-9f49-c8a50ea1033a}">
+        <File Id="CompilerFile" Name="pfc.exe" Source="ProductBuild\pfc.exe" KeyPath="yes" />
+      </Component>
+      <Component Id="CompilerCore" Guid="{cd380398-ceb1-4cba-a7a3-f11e907b790d}">
+        <File Id="CompilerCoreFile" Name="Pit.Compiler.Core.dll" Source="ProductBuild\Pit.Compiler.Core.dll" Vital="yes" />
+      </Component>
+      <Component Id="JsBeautify" Guid="{c3b00fb8-a53d-48d1-a18e-ea5cb360ca70}">
+        <File Id="JsBeautifyFile" Name="Pit.Compiler.JsBeautify.dll" Source="ProductBuild\Pit.Compiler.JsBeautify.dll" Vital="yes" />
+      </Component>
+      <Component Id="PitCommon" Guid="{0A543AAB-5C58-4073-9D9B-A98835097E3E}">
+        <File Id="PitCommonFile" Name="Pit.Common.dll" Source="ProductBuild\Pit.Common.dll" Vital="yes" />
+      </Component>
+      <Component Id="PitCommonDbg" Guid="{3283D96C-053A-454B-ADE6-BD6631ADF7F6}">
+        <File Id="PitCommonFileDbg" Name="Pit.Common.dbg.dll" Source="ProductBuild\Pit.Common.dbg.dll" Vital="yes" />
+      </Component>
+      <Component Id="Core" Guid="{eada7a30-b8e0-4b63-ab26-2d4fc1b11fde}">
+        <File Id="CoreFile" Name="Pit.Core.dll" Source="ProductBuild\Pit.Core.dll" Vital="yes" />
+      </Component>
+      <Component Id="CoreDbg" Guid="{773B784B-C54F-437F-952E-B79604D2A388}">
+        <File Id="CoreDbgFile" Name="Pit.Core.dbg.dll" Source="ProductBuild\Pit.Core.dbg.dll" Vital="yes" />
+      </Component>
+      <Component Id="CoreJs" Guid="{C0F4BCB5-209C-4E39-8D8F-6BF65837451C}">
+        <File Id="CoreJsFile" Name="Pit.js" Source="ProductBuild\Pit.js" Vital="yes" />
+      </Component>
+      <Component Id="PitCoreJs" Guid="{4FBCBDD3-7F16-4FC0-A4A0-A88A01C1B0FD}">
+        <File Id="PitCoreJsFile" Name="Pit.Core.min.js" Source="ProductBuild\Pit.Core.min.js" Vital="yes" />
+      </Component>
+      <Component Id="PitRuntime" Guid="{B7B2D73F-07B1-4882-BA7C-082290D5AF99}">
+        <File Id="PitRuntimeFile" Name="Pit.Runtime.xap" Source="ProductBuild\Pit.Runtime.xap" Vital="yes" />
+      </Component>
+      <Component Id="PitBuild" Guid="{38C18DED-9303-434D-9424-A002C496E0EB}">
+        <File Id="PitBuildFile" Name="Pit.Build.dll" Source="ProductBuild\Pit.Build.dll" Vital="yes" />
+      </Component>
+      <Component Id="UserGuide" Guid="{C43522F2-65D7-417C-8560-3F6E6C43F532}">
+        <File Id="UserGuide.docx" Source="ProductBuild\ug.docx" Vital="yes"/>
+      </Component>
+      <Component  Id="PitEnvReg" Guid="{03CC6B62-07F8-4275-8246-E0F744CD28EA}">
+        <CreateFolder/>
+        <Environment Id='UpdatePath' Name='PitLocation' Action='set' System='no' Value='[vNumber]' />
+      </Component>
+    </DirectoryRef>
+
+    <!-- Step 2: Add the shortcut to your installer package -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="{6C651599-B92A-48DC-B854-D224F9D3182B}">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Pit UserGuide"
+                  Description="UserGuide for Pit - F# to Js coverter"
+                  Target="[BinLocation]ug.docx"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+
+    <DirectoryRef Id="VsixLocation">
+      <Component Id="Vsix" Guid="{D1149B96-B02C-4FB2-B3E7-056CB8828435}">
+        <File Id="VsixFile" Name="Pit.vsix" Source="ProductBuild\Pit.vsix" KeyPath="yes" >
+          <vs:VsixPackage xmlns:vs="http://schemas.microsoft.com/wix/VSExtension" PackageId="Pit.Vsix.Microsoft.7b915b1b-bb1a-4b17-b5f8-970d9737d1ea"  Permanent="no" Vital="yes"/>
+        </File>
+      </Component>
+    </DirectoryRef>
+
+    <!-- Step 3: Tell WiX to install the files -->
+    <Feature Id="PitInstaller" Title="Pit Framework" Level="1">
+      <ComponentRef Id="PitEnvReg" />
+      <ComponentRef Id="Vsix" />
+      <ComponentRef Id="Compiler" />
+      <ComponentRef Id="CompilerCore" />
+      <ComponentRef Id="JsBeautify" />
+      <ComponentRef Id="PitCommon" />
+      <ComponentRef Id="PitCommonDbg" />
+      <ComponentRef Id="Core" />
+      <ComponentRef Id="CoreDbg" />
+      <ComponentRef Id="CoreJs" />
+      <ComponentRef Id="PitCoreJs" />
+      <ComponentRef Id="PitRuntime" />
+      <ComponentRef Id="PitBuild" />
+      <ComponentRef Id="UserGuide" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+    <UIRef Id="WixUI_Minimal"/>
+    <WixVariable Id="WixUILicenseRtf" Value="ProductBuild\License.rtf" />
+  </Product>
+</Wix>
