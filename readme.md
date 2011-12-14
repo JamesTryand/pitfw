@@ -41,6 +41,7 @@ Additionally, If someone is interested in creating component controls using Pit,
 * HTML5 DOM elements & SVG
 * Custom Library project templates
 * Mac MonoDevelop support
+
 ####Fixes
 * Fix closure issue in for loops
 * Fix mapping .NET string functions to JsString
@@ -81,5 +82,5 @@ Bugs can be filed using the Issues tab in Github (https://github.com/fahadsuhaib
     * If possible, provide a screenshot and describe the error in a simple way
 We will analyze the bug and if it's a good use-case then this will be added to the main test cases for future regression testing.
 
-####Thanks
+##Special Thanks
 We would like to thank the F# community for providing valuable information in getting this work done. Also, we would like to thank projects like Tomas's F# WebTools (http://fswebtools.codeplex.com/), Jason Greene's F# to JavaScript (https://github.com/jgreene/FSharp.Javascript), Script# (https://github.com/nikhilk/scriptsharp) and the F# source compiler drops (http://fsharppowerpack.codeplex.com/) to help us understand and complete the implementation.
