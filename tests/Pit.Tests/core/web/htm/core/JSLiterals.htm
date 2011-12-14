@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../pit.js" type="text/javascript"></script>
+    <script src="../../assert.js" type="text/javascript"></script>
+    <script src="../../js/pit.core.js" type="text/javascript"></script>
+    <script src="../../tests/jsliterals.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function testStrings() {
+            Pit.Test.JsStringTest.Length();
+            Pit.Test.JsStringTest.CharAt();
+            Pit.Test.JsStringTest.CharCodeAt();
+            Pit.Test.JsStringTest.Concat();
+            Pit.Test.JsStringTest.IndexOf();
+            Pit.Test.JsStringTest.LastIndexOf();
+            Pit.Test.JsStringTest.Match();
+            Pit.Test.JsStringTest.Replace();
+            Pit.Test.JsStringTest.Search();
+            Pit.Test.JsStringTest.Slice();
+            Pit.Test.JsStringTest.Split();
+            Pit.Test.JsStringTest.Substring1();
+            Pit.Test.JsStringTest.Substring2();
+            Pit.Test.JsStringTest.ToLower();
+            Pit.Test.JsStringTest.ToUpper();
+            Pit.Test.StringMapTest.Length();
+            Pit.Test.StringMapTest.GetCharAt();
+            Pit.Test.StringMapTest.Substring1();
+            Pit.Test.StringMapTest.Substring2();
+            Pit.Test.StringMapTest.ContainsPass();
+            Pit.Test.StringMapTest.ContainsFail();
+            Pit.Test.StringMapTest.EndsWith();
+            Pit.Test.StringMapTest.Equals();
+            Pit.Test.StringMapTest.IndexOf1();
+            Pit.Test.StringMapTest.IndexOf2();
+            Pit.Test.StringMapTest.LastIndexOf();
+            Pit.Test.StringMapTest.Replace();
+            Pit.Test.StringMapTest.Split();
+            Pit.Test.StringMapTest.ToLower();
+            Pit.Test.StringMapTest.ToUpper();
+        }
+
+        function testFSStrings() {
+            Pit.Test.FSStringsTest.Collect();
+            Pit.Test.FSStringsTest.Exists();
+            Pit.Test.FSStringsTest.ForAll();
+            Pit.Test.FSStringsTest.Init();
+            Pit.Test.FSStringsTest.Iterate();
+            Pit.Test.FSStringsTest.IterateIndex();
+            Pit.Test.FSStringsTest.Length();
+            Pit.Test.FSStringsTest.Map();
+            Pit.Test.FSStringsTest.Replicate();
+        }
+
+        function test() {
+            testStrings();
+            testFSStrings();
+            Pit.Test.DateTest.TestAll();
+            Pit.Test.MathTest.TestAll();
+            Pit.Test.RegexTest.Create();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="test" value="Start JS Literals Tests" onclick="test()" />
+</body>
+</html>

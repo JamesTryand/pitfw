@@ -1,0 +1,99 @@
+﻿<Project DefaultTargets="BuildAll" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="Pit.AutoBuild.VersionUpdateTask" AssemblyFile="build\references\Pit.AutoBuild.dll"  />
+  <PropertyGroup>
+    <DestFolder>build\Pit.Setup\ProductBuild\</DestFolder>
+    <Configuration>Release</Configuration>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyVersionFiles Include="src\**\AssemblyInfo.fs"/>
+    <!--<AssemblyVersionFiles Include="build\**\AssemblyInfo.fs"/>-->
+  </ItemGroup>
+  <ItemGroup>
+    <FilesToInclude Include="src\Scripts\Pit.js"/>
+    <FilesToInclude Include="docs\UserGuide.pdf" />
+    <ProjectsToBuild Include="src\Pit.Common\Pit.Common.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Common\Pit.Common.dbg.fsproj" />
+    <ProjectsToBuild Include="src\Pit.Common\Pit.Common.Silverlight.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Compiler.JsBeautify\Pit.Compiler.JsBeautify.csproj"/>
+    <ProjectsToBuild Include="src\Pit.Core\Pit.Core.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Core\Pit.Core.Silverlight.fsproj" />
+    <ProjectsToBuild Include="src\Pit.Core.dbg\Pit.Core.dbg.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Runtime\Pit.Runtime.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Compiler.Core\Pit.Compiler.Core.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Compiler.Core\Pit.Compiler.Core.Silverlight.fsproj"/>
+    <ProjectsToBuild Include="src\Pit.Compiler\Pit.Compiler.fsproj"/>
+
+    <ProjectsToBuild Include="build\Pit.Build\Pit.Build.fsproj"/>
+
+
+    <VsixFileProjects Include="build\Pit.Vsix\Pit.TemplateWizard\Pit.TemplateWizard.fsproj"/>
+    <VsixFileProjects Include="build\Pit.Vsix\Pit.TemplateDialog\Pit.TemplateDialog.fsproj"/>
+    <VsixFileProjects Include="build\Pit.Vsix\Pit.Vsix\Pit.Vsix.csproj"/>
+
+    <ProjectsPostToBuild Include="build\Pit.Setup\Pit.Setup.sln"/>
+
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BuildAllDependsOn>CleanAll;FilesPreBuildCopy;VersionRename;CoreBuild;VsixBuild;CopyFiles;PostBuild;</BuildAllDependsOn>
+  </PropertyGroup>
+  <Target Name="BuildAll" DependsOnTargets="$(BuildAllDependsOn)"/>
+
+  <Target Name="VersionRename">
+    <VersionUpdateTask Version="$(AssemblyVersion)" FilePath="%(AssemblyVersionFiles.FullPath)"/>
+  </Target>
+
+  <Target Name="CoreBuild">
+    <MSBuild Projects ="@(ProjectsToBuild)"
+             ContinueOnError ="false"
+             Properties="Configuration=$(Configuration)">
+      <Output ItemName="OutputFiles" TaskParameter="TargetOutputs"/>
+    </MSBuild>
+  </Target>
+
+  <Target Name="VsixBuild">
+    <MSBuild Projects ="@(VsixFileProjects)"
+             ContinueOnError ="false"
+             Properties="Configuration=$(Configuration)">
+    </MSBuild>
+  </Target>
+
+  <Target Name="PostBuild">
+    <MSBuild Projects ="@(ProjectsPostToBuild)"
+             ContinueOnError ="false"
+             Properties="Configuration=$(Configuration)">
+      <Output ItemName="OutputFiles" TaskParameter="TargetOutputs"/>
+    </MSBuild>
+  </Target>
+
+
+  <Target Name="FilesPreBuildCopy">
+    <Copy SourceFiles="@(FilesToInclude)"
+            DestinationFiles="@(FilesToInclude->'$(DestFolder)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+
+  <Target Name="CopyFiles">
+    <Copy SourceFiles="@(OutputFiles)"
+          DestinationFiles="@(OutputFiles->'$(DestFolder)%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="build\Pit.Vsix\Pit.Vsix\bin\Release\Pit.Vsix.vsix"
+          DestinationFiles="build\Pit.Setup\ProductBuild\Pit.Vsix" />
+    <Copy SourceFiles="src\Pit.Runtime\bin\Pit.Runtime.xap"
+          DestinationFiles="build\Pit.Setup\ProductBuild\Pit.Runtime.xap" />
+  </Target>
+
+  <Target Name="CleanAll">
+    <CreateItem Include="$(DestFolder)\**\*pdf;$(DestFolder)\**\*exe;$(DestFolder)\**\*dll;$(DestFolder)\**\*xap;$(DestFolder)\**\*js;$(DestFolder)\**\*vsix;">
+      <Output ItemName="GeneratedFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <Delete Files="@(GeneratedFiles)"/>
+    <MSBuild Projects="@(ProjectsToBuild)" Targets="Clean" Properties="Configuration=$(Configuration);"/>
+    <MSBuild Projects="@(VsixFileProjects)" Targets="Clean" Properties="Configuration=$(Configuration);"/>
+    <MSBuild Projects="@(ProjectsPostToBuild)" Targets="Clean" Properties="Configuration=$(Configuration);"/>
+  </Target>
+  <Target Name="PrintAll">
+    <Message Text="Project files:%0d%0a@(ProjectsToBuild,'%0d%0a')" Importance="high"/>
+    <Message Text="Project files:%0d%0a@(ProjectsPostToBuild,'%0d%0a')" Importance="high"/>
+  </Target>
+</Project>

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="../../pit.js" type="text/javascript"></script>
+    <script src="../../assert.js" type="text/javascript"></script>
+    <script src="../../js/pit.core.js" type="text/javascript"></script>
+    <script src="../../tests/canvas_tests.js" type="text/javascript"></script>
+
+    <input type="button" name="test" value="Start DOM Asserts" onclick="testCanvas()" />
+    <input type="button" name="test" value="Draw Line" onclick="drawLine()" />
+    <input type="button" name="test" value="Draw Line Caps" onclick="drawLineCaps()" />
+    <input type="button" name="test" value="Draw Arc" onclick="drawArc()" />
+    <input type="button" name="test" value="Draw Quad Arc" onclick="drawQuadArc()" />
+    <input type="button" name="test" value="Draw Bezier Curve" onclick="drawBezierCurve()" />
+    <input type="button" name="test" value="Draw Line Joins" onclick="drawLineJoins()" />
+    <input type="button" name="test" value="Draw Rectangles" onclick="drawRectangle()" />
+    <input type="button" name="test" value="Draw LinearGradient" onclick="linearGradient()" />
+    <input type="button" name="test" value="Draw RadialGradient" onclick="radialGradient()" />
+    <input type="button" name="test" value="Draw Clip" onclick="clip()" />
+    <input type="button" name="test" value="Draw Global Alpha" onclick="globalAlpha()" />
+    <input type="button" name="test" value="Draw Global SourceATop" onclick="globalCompositeSourceATop()" />
+    <input type="button" name="test" value="Draw Global SourceIn" onclick="globalCompositeSourceIn()" />
+    <input type="button" name="test" value="Draw Global SourceOut" onclick="globalCompositeSourceOut()" />
+    <input type="button" name="test" value="Draw Global SourceOver" onclick="globalCompositeSourceOver()" />
+    <input type="button" name="test" value="Draw Global DestATop" onclick="globalCompositeDestinationATop()" />
+    <input type="button" name="test" value="Draw Global DestIn" onclick="globalCompositeDestinationIn()" />
+    <input type="button" name="test" value="Draw Global DestOut" onclick="globalCompositeDestinationOut()" />
+    <input type="button" name="test" value="Draw Global DestOver" onclick="globalCompositeDestinationOver()" />
+    <input type="button" name="test" value="Draw Global Lighter" onclick="globalCompositeDestinationLighter()" />
+    <input type="button" name="test" value="Draw Global XOR" onclick="globalCompositeDestinationXor()" />
+    <input type="button" name="test" value="Draw Global Copy" onclick="globalCompositeDestinationCopy()" />
+    <input type="button" name="test" value="Translate" onclick="translate()" />
+    <input type="button" name="test" value="Scale" onclick="scale()" />
+    <input type="button" name="test" value="Rotate" onclick="rotate()" />
+    <input type="button" name="test" value="Transform" onclick="transform()" />
+    <div>
+        <canvas id="canvas">
+        </canvas>
+    </div>
+
+    <script type="text/javascript">
+        function testCanvas() {
+            Pit.Dom.Html5.Tests.CanvasTest.WidthHeight();
+            Pit.Dom.Html5.Tests.CanvasTest.CtxCanvas();
+        }
+
+        function drawLine() {
+            Pit.Dom.Html5.Tests.CanvasTest.DrawLines();
+        }
+
+        function drawLineCaps() {
+            Pit.Dom.Html5.Tests.CanvasTest.DrawLineCaps();
+        }
+
+        function drawArc() {
+            Pit.Dom.Html5.Tests.CanvasTest.DrawArc();
+        }
+
+        function drawQuadArc() {
+            Pit.Dom.Html5.Tests.CanvasTest.DrawQuadArc();
+        }
+
+        function drawBezierCurve() {
+            Pit.Dom.Html5.Tests.CanvasTest.DrawBezierCurve();
+        }
+
+        function drawLineJoins() {
+            Pit.Dom.Html5.Tests.CanvasTest.LineJoins();
+        }
+
+        function drawRectangle() {
+            Pit.Dom.Html5.Tests.CanvasTest.Rectangle();
+        }
+
+        function linearGradient() {
+            Pit.Dom.Html5.Tests.CanvasTest.LinearGradient();
+        }
+
+        function radialGradient() {
+            Pit.Dom.Html5.Tests.CanvasTest.RadialGradient();
+        }
+
+        function clip() {
+            Pit.Dom.Html5.Tests.CanvasTest.Clip();
+        }
+
+        function globalAlpha() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalAlpha();
+        }
+
+        function globalCompositeSourceATop() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeSourceATop();
+        }
+
+        function globalCompositeSourceIn() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeSourceIn();
+        }
+
+        function globalCompositeSourceOver() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeSourceOver();
+        }
+
+        function globalCompositeSourceOut() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeSourceOut();
+        }
+
+        function globalCompositeDestinationATop() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationATop();
+        }
+
+        function globalCompositeDestinationIn() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationIn();
+        }
+
+        function globalCompositeDestinationOut() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationOut();
+        }
+
+        function globalCompositeDestinationOver() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationOver();
+        }
+
+        function globalCompositeDestinationLighter() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationLighter();
+        }
+
+        function globalCompositeDestinationXor() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationXor();
+        }
+
+        function globalCompositeDestinationCopy() {
+            Pit.Dom.Html5.Tests.CanvasTest.GlobalCompositeDestinationCopy();
+        }
+
+        function translate() {
+            Pit.Dom.Html5.Tests.CanvasTest.Translate();
+        }
+
+        function scale() {
+            Pit.Dom.Html5.Tests.CanvasTest.Scale();
+        }
+
+        function rotate() {
+            Pit.Dom.Html5.Tests.CanvasTest.Rotate();
+        }
+
+        function transform() {
+            Pit.Dom.Html5.Tests.CanvasTest.Transform();
+        }
+    </script>
+
+</body>
+</html>

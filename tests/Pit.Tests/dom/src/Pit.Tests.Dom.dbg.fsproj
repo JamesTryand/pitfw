@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Name>Pit.Tests.Dom.dbg</Name>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{96d408d8-b49f-4b53-aadb-e0eac144218b}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Pit.Tests.Dom.dbg</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileAlignment>512</FileAlignment>
+    <AllowCrossTargeting>true</AllowCrossTargeting>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{f2a71f9b-5d33-465a-a702-920d77279786}</ProjectTypeGuids>
+    <SilverlightApplication>true</SilverlightApplication>
+    <ValidateXaml>false</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <RootNamespace>$(Name)</RootNamespace>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <SilverlightManifestTemplate>AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>$(RootNamespace).App</SilverlightAppEntry>
+    <XapFilename>$(Name).xap</XapFilename>
+    <!-- FrameworkRegistryBase needed for Microsoft.Silverlight.Common.targets -->
+    <FrameworkRegistryBase>Software\Microsoft\Microsoft SDKs\$(TargetFrameworkIdentifier)</FrameworkRegistryBase>
+    <CreateTestPage>true</CreateTestPage>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <SupportedCultures>
+    </SupportedCultures>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;DOM;DBG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;DOM;DBG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.Common.targets" />
+  <ItemGroup>
+    <Compile Include="..\..\common\Assert.dbg.fs">
+      <Link>Common\Assert.dbg.fs</Link>
+    </Compile>
+    <Compile Include="..\..\core\src\JSLiterals\DateTest.fs">
+      <Link>JSLiterals\DateTest.fs</Link>
+    </Compile>
+    <Compile Include="..\..\core\src\JSLiterals\JsArrayTest.fs">
+      <Link>JSLiterals\JsArrayTest.fs</Link>
+    </Compile>
+    <Compile Include="..\..\core\src\JSLiterals\JsStringTest.fs">
+      <Link>JSLiterals\JsStringTest.fs</Link>
+    </Compile>
+    <Compile Include="..\..\core\src\JSLiterals\MathTest.fs">
+      <Link>JSLiterals\MathTest.fs</Link>
+    </Compile>
+    <Compile Include="..\..\core\src\JSLiterals\RegexTest.fs">
+      <Link>JSLiterals\RegexTest.fs</Link>
+    </Compile>
+    <Compile Include="core\DomAnchorTests.fs" />
+    <Compile Include="core\DomAreaTests.fs" />
+    <Compile Include="core\DomBaseTests.fs" />
+    <Compile Include="core\DomCanvas.fs" />
+    <Compile Include="core\DomDocumentTests.fs" />
+    <Compile Include="core\DomElementTests.fs" />
+    <Compile Include="core\DomEventsTest.fs" />
+    <Compile Include="core\DomFormTests.fs" />
+    <Compile Include="core\DomFrameSet.fs" />
+    <Compile Include="core\DomImageTests.fs" />
+    <Compile Include="core\DomInputTests.fs" />
+    <Compile Include="core\DomLinkTests.fs" />
+    <Compile Include="core\DomMetaTests.fs" />
+    <Compile Include="core\DomOptionTests.fs" />
+    <Compile Include="core\DomSelectTests.fs" />
+    <Compile Include="core\DomTableTest.fs" />
+    <Compile Include="core\DomTextAreaTests.fs" />
+    <Compile Include="core\DomWindowTests.fs" />
+    <Compile Include="html5\Common.fs" />
+    <Compile Include="html5\DomMedia.fs" />
+    <Compile Include="svg\SVGATests.fs" />
+    <Compile Include="svg\SVGCircleTests.fs" />
+    <Compile Include="svg\SVGCommonTests.fs" />
+    <Compile Include="svg\SVGEllipseTests.fs" />
+    <Compile Include="svg\SVGRectTests.fs" />
+    <Compile Include="TestInit.fs" />
+    <Compile Include="App.fs" />
+    <Content Include="AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Core">
+      <HintPath>$(ProgramFiles)\Microsoft F#\Silverlight\Libraries\Client\$(SilverlightVersion)\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Pit.Common\Pit.Common.dbg.fsproj">
+      <Name>Pit.Common.dbg</Name>
+      <Project>{4a2422aa-2b1d-480e-bb07-7a1d90a5545f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Pit.Core.dbg\Pit.Core.dbg.fsproj">
+      <Name>Pit.Core.dbg</Name>
+      <Project>{3572d127-ccf0-4d50-9290-594ebe002f1c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y $(TargetDir)$(ProjectName).xap $(TargetDir)..\..\web\ClientBin</PostBuildEvent>
+  </PropertyGroup>
+</Project>

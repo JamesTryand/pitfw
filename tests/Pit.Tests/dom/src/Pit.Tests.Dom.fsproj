@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9a068e73-bbea-46b9-a1ea-1a6b8a7b0159}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Pit.Test.ArrayModule</RootNamespace>
+    <AssemblyName>Pit.TestHelpers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <Name>Pit.TestHelpers</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DOM</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\Debug\Pit.TestHelpers.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DOM</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\Release\Pit.Test.ArrayModule.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\common\Assert.fs">
+      <Link>common\Assert.fs</Link>
+    </Compile>
+    <Compile Include="core\DomAnchorTests.fs" />
+    <Compile Include="core\DomAreaTests.fs" />
+    <Compile Include="core\DomBaseTests.fs" />
+    <Compile Include="core\DomCanvas.fs" />
+    <Compile Include="core\DomDocumentTests.fs" />
+    <Compile Include="core\DomElementTests.fs" />
+    <Compile Include="core\DomEventsTest.fs" />
+    <Compile Include="core\DomFormTests.fs" />
+    <Compile Include="core\DomFrameSet.fs" />
+    <Compile Include="core\DomImageTests.fs" />
+    <Compile Include="core\DomInputTests.fs" />
+    <Compile Include="core\DomLinkTests.fs" />
+    <Compile Include="core\DomMetaTests.fs" />
+    <Compile Include="core\DomOptionTests.fs" />
+    <Compile Include="core\DomSelectTests.fs" />
+    <Compile Include="core\DomTableTest.fs" />
+    <Compile Include="core\DomTextAreaTests.fs" />
+    <Compile Include="core\DomWindowTests.fs" />
+    <Compile Include="html5\Common.fs" />
+    <Compile Include="html5\DomMedia.fs" />
+    <Compile Include="svg\SVGATests.fs" />
+    <Compile Include="svg\SVGCircleTests.fs" />
+    <Compile Include="svg\SVGCommonTests.fs" />
+    <Compile Include="svg\SVGEllipseTests.fs" />
+    <Compile Include="svg\SVGRectTests.fs" />
+    <Compile Include="TestInit.fs" />
+    <Compile Include="..\..\core\src\TestModule.fs">
+      <Link>TestModule.fs</Link>
+    </Compile>
+    <Compile Include="..\..\core\src\Program.fs">
+      <Link>Program.fs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Pit.Common\Pit.Common.fsproj">
+      <Name>Pit.Common</Name>
+      <Project>{d8471f0a-b4ac-45fb-a701-bbe23df50814}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Pit.Compiler.Core\Pit.Compiler.Core.fsproj">
+      <Name>Pit.Compiler.Core</Name>
+      <Project>{5cf9d73f-07d6-4663-b61f-365ce7dc1491}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Pit.Core\Pit.Core.fsproj">
+      <Name>Pit.Core</Name>
+      <Project>{9075ed59-7975-4e2f-a44e-35fe8b4cabc8}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

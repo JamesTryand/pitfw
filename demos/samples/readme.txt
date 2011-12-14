@@ -1,0 +1,1 @@
+Requires latest Pit setup to run these samples in Visual Studio 2010.

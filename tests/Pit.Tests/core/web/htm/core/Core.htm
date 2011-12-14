@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        #div
+        {
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <script src="../../pit.js" type="text/javascript"></script>
+    <script src="../../assert.js" type="text/javascript"></script>
+    <script src="../../js/pit.core.js" type="text/javascript"></script>
+    <script src="../../tests/core_tests.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function testForLoops() {
+            Pit.Test.ForTests.ForSimple();
+            Pit.Test.ForTests.ForFunctions();
+            Pit.Test.ForTests.ForInDeclare();
+            Pit.Test.ForTests.ForInDeclare2();
+        }
+
+        function testWhileLoops() {
+            Pit.Test.WhileTests.WhileDeclare()
+        }
+
+        function testTuple() {
+            Pit.Test.TupleTests.TupleDecalre();
+            Pit.Test.TupleTests.TupleFst();
+            Pit.Test.TupleTests.TupleSnd();
+            Pit.Test.TupleTests.MixedTuple();
+            Pit.Test.TupleTests.TupleFunctions();
+            Pit.Test.TupleTests.TupleFunctions2();
+            Pit.Test.TupleTests.TupleFunctions3();
+            Pit.Test.TupleTests.TupleArrays();
+            Pit.Test.TupleTests.TupleRecords();
+            Pit.Test.TupleTests.TupleCallAsNormalFunction();
+        }
+
+        function testRecords() {
+            Pit.Test.RecordsTests.RecordDeclare();
+            Pit.Test.RecordsTests.RecordDeclare2();
+            Pit.Test.RecordsTests.RecordDeclare3();
+            Pit.Test.RecordsTests.RecordDeclare4();
+            Pit.Test.RecordsTests.RecordPatternMatching();
+            Pit.Test.RecordsTests.RecordJsObjectTest();
+            Pit.Test.RecordsTests.RecordJsObjectEqualityTest();
+            Pit.Test.RecordsTests.RecordJsObjectEqualityTest2();
+            Pit.Test.RecordsTests.NestedRecord();
+            Pit.Test.RecordsTests.NestedRecord2();
+            Pit.Test.RecordsTests.NestedRecordEquality();
+            Pit.Test.RecordsTests.RecordExtendedTypeTest();
+        }
+
+        function testUnions() {
+            Pit.Test.UnionTests.UnionDeclare();
+        }
+
+        function testPatterns() {
+            Pit.Test.PatternTests.ConstantMatchTest();
+            Pit.Test.PatternTests.ConstantMatchTest2();
+            Pit.Test.PatternTests.IdentifierPattern();
+            Pit.Test.PatternTests.VariablePatternTest();
+            Pit.Test.PatternTests.VariablePatternTest2();
+            Pit.Test.PatternTests.AsPatternTest();
+            Pit.Test.PatternTests.OrPatternTest();
+            Pit.Test.PatternTests.AndPatternTest();
+            Pit.Test.PatternTests.ConsPatternTest();
+            Pit.Test.PatternTests.ListPatternTest();
+            Pit.Test.PatternTests.ParanthesizedPatternTest();
+            Pit.Test.PatternTests.TuplePatternTest();
+            Pit.Test.PatternTests.WildCardPatternTest();
+            Pit.Test.PatternTests.MultiplePatternTest();
+            Pit.Test.ActivePatternsTest.ActivePatterns();
+            Pit.Test.ActivePatternsTest.PartialActivePatterns();
+        }
+
+        function testDelegates() {
+            Pit.Test.DelegateTests.Declare1();
+            Pit.Test.DelegateTests.Declare2();
+        }
+
+        function testLetDeclaration() {
+            Pit.Test.LetTests.LetDeclare();
+            Pit.Test.LetTests.Let();
+            Pit.Test.LetTests.Let3();
+            Pit.Test.LetTests.LetRecursive();
+            Pit.Test.LetTests.LetRecursive2();
+            Pit.Test.LetTests.LetFunctionValues();
+            Pit.Test.LetTests.LetLambdaFunctions();
+            Pit.Test.LetTests.LetFunctionComposition();
+            Pit.Test.LetTests.LetTuple();
+            Pit.Test.LetTests.LetTuple2();
+            Pit.Test.LetTests.LetMutable();
+        }
+
+        function testTryWith() {
+            Pit.Test.TryWithTests.TryWith1();
+        }
+
+        function testOperatorOverload() {
+            Pit.Test.OperatorOverloadTests.OpOverload1();
+            Pit.Test.OperatorOverloadTests.OpOverload2();
+        }
+
+        function testUOM() {
+            Pit.Test.UOMTest.UOMeasure1();
+            Pit.Test.UOMTest.UOMeasure2();
+        }
+
+        function testOverloadedCtors() {
+            Pit.Test.OverloadedCtorsTests.TestRecordLikeCtor();
+            Pit.Test.OverloadedCtorsTests.TestNormalTypes();
+        }
+
+        function testRangeEnumerator() {
+            Pit.Test.RangeEnumeratorTests.Increment();
+            Pit.Test.RangeEnumeratorTests.IncrementTwoWay();
+            Pit.Test.RangeEnumeratorTests.Decrement();
+            Pit.Test.RangeEnumeratorTests.NestedRanges();
+        }
+    </script>
+
+    <div>
+        <input type="button" name="test" value="Let Tests" onclick="testLetDeclaration()" />
+        <input type="button" name="test" value="For Tests" onclick="testForLoops()" />
+        <input type="button" name="test" value="While Tests" onclick="testWhileLoops()" />
+        <input type="button" name="test" value="Tuple Tests" onclick="testTuple()" />
+        <input type="button" name="test" value="Record Tests" onclick="testRecords()" />
+        <input type="button" name="test" value="Unions Tests" onclick="testUnions()" />
+        <input type="button" name="test" value="Patterns Tests" onclick="testPatterns()" />
+        <input type="button" name="test" value="Delegates Tests" onclick="testDelegates()" />
+        <input type="button" name="test" value="Operator Tests" onclick="testOperatorOverload()" />
+        <input type="button" name="test" value="UOM Tests" onclick="testUOM()" />
+        <input type="button" name="test" value="OverloadedCtors Tests" onclick="testOverloadedCtors()" />
+        <input type="button" name="test" value="RangeEnumerator Tests" onclick="testRangeEnumerator()" />
+    </div>
+
+</body>
+</html>

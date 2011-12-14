@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="../../pit.js" type="text/javascript"></script>
+    <script src="../../assert.js" type="text/javascript"></script>
+    <script src="../../js/pit.core.js" type="text/javascript"></script>
+    <script src="../../tests/core2_tests.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function arrayTest() {
+            Pit.Test.ArrayTest.Declare();
+            Pit.Test.ArrayTest.Length();
+            Pit.Test.ArrayTest.DeclareRange();
+            Pit.Test.ArrayTest.ZeroCreate();
+            Pit.Test.ArrayTest.CreateGetSet();
+            Pit.Test.ArrayTest.Init();
+            Pit.Test.ArrayTest.Copy();
+            Pit.Test.ArrayTest.Sub();
+            Pit.Test.ArrayTest.Append();
+            Pit.Test.ArrayTest.Choose();
+            Pit.Test.ArrayTest.Collect();
+            Pit.Test.ArrayTest.Concat();
+            Pit.Test.ArrayTest.Filter();
+            Pit.Test.ArrayTest.Rev();
+            Pit.Test.ArrayTest.FilterChooseRev();
+            Pit.Test.ArrayTest.Exists1();
+            Pit.Test.ArrayTest.Exists2();
+            Pit.Test.ArrayTest.Exists2Function();
+            Pit.Test.ArrayTest.ForAll();
+            Pit.Test.ArrayTest.ForAll2();
+            Pit.Test.ArrayTest.FindAndFindIndex();
+            Pit.Test.ArrayTest.TryFind();
+            Pit.Test.ArrayTest.Fill();
+            Pit.Test.ArrayTest.Iterate();
+            Pit.Test.ArrayTest.IterateIndexed();
+            Pit.Test.ArrayTest.IterateIndexed2();
+            Pit.Test.ArrayTest.Map();
+            Pit.Test.ArrayTest.MapIndexed();
+            Pit.Test.ArrayTest.Map2();
+            Pit.Test.ArrayTest.MapIndexed2();
+            Pit.Test.ArrayTest.Pick();
+            Pit.Test.ArrayTest.TryPick();
+            Pit.Test.ArrayTest.Partition();
+            Pit.Test.ArrayTest.Zip();
+            Pit.Test.ArrayTest.Zip3();
+            Pit.Test.ArrayTest.Unzip();
+            Pit.Test.ArrayTest.Unzip3();
+            Pit.Test.ArrayTest.Fold();
+            Pit.Test.ArrayTest.FoldBack();
+            Pit.Test.ArrayTest.Fold2();
+            Pit.Test.ArrayTest.FoldBack2();
+            Pit.Test.ArrayTest.Scan();
+            Pit.Test.ArrayTest.ScanBack();
+            Pit.Test.ArrayTest.Reduce();
+            Pit.Test.ArrayTest.ReduceBack();
+            Pit.Test.ArrayTest.SortInPlace();
+            Pit.Test.ArrayTest.SortInPlaceBy();
+            Pit.Test.ArrayTest.SortInPlaceWith();
+            Pit.Test.ArrayTest.SortWith();
+            Pit.Test.ArrayTest.Sort();
+            Pit.Test.ArrayTest.Sort2();
+            Pit.Test.ArrayTest.Permute();
+            Pit.Test.ArrayTest.Sum();
+            Pit.Test.ArrayTest.SumBy();
+            Pit.Test.ArrayTest.Min();
+            Pit.Test.ArrayTest.MinBy();
+            Pit.Test.ArrayTest.Max();
+            Pit.Test.ArrayTest.MaxBy();
+            Pit.Test.ArrayTest.Average();
+            Pit.Test.ArrayTest.AverageBy();
+            Pit.Test.ArrayTest.ToList();
+            Pit.Test.ArrayTest.OfList();
+            Pit.Test.ArrayTest.ToSeq();
+            Pit.Test.ArrayTest.OfSeq();
+            Pit.Test.Array2DTest.Init();
+            Pit.Test.Array2DTest.Length1();
+            Pit.Test.Array2DTest.Length2();
+            Pit.Test.Array2DTest.GetSet();
+            Pit.Test.Array2DTest.ZeroCreate();
+            Pit.Test.Array2DTest.Iter();
+            Pit.Test.Array2DTest.IterateIndex();
+            Pit.Test.Array2DTest.Map();
+            Pit.Test.Array2DTest.MapIndexed();
+        }
+
+        function seqTest() {
+            Pit.Test.SeqTest.Declare();
+            Pit.Test.SeqTest.Initialize();
+            Pit.Test.SeqTest.InitializeInfinite();
+            Pit.Test.SeqTest.OfArray();
+            Pit.Test.SeqTest.Iterate();
+            Pit.Test.SeqTest.IterateIndexed();
+            Pit.Test.SeqTest.Iterate2();
+            Pit.Test.SeqTest.Exists();
+            Pit.Test.SeqTest.ForAll();
+            Pit.Test.SeqTest.Filter();
+            Pit.Test.SeqTest.Map();
+            Pit.Test.SeqTest.MapIndexed();
+            Pit.Test.SeqTest.Map2();
+            Pit.Test.SeqTest.Choose();
+            Pit.Test.SeqTest.Zip();
+            Pit.Test.SeqTest.Zip3();
+            Pit.Test.SeqTest.TryPick();
+            Pit.Test.SeqTest.Pick();
+            Pit.Test.SeqTest.TryFind();
+            Pit.Test.SeqTest.Find();
+            Pit.Test.SeqTest.Concat();
+            Pit.Test.SeqTest.Length();
+            Pit.Test.SeqTest.Fold();
+            Pit.Test.SeqTest.Reduce();
+            Pit.Test.SeqTest.Append();
+            Pit.Test.SeqTest.Collect();
+            Pit.Test.SeqTest.CompareWith();
+            Pit.Test.SeqTest.Singleton();
+            Pit.Test.SeqTest.Truncate();
+            Pit.Test.SeqTest.Take();
+            Pit.Test.SeqTest.TakeWhile();
+            Pit.Test.SeqTest.Skip();
+            Pit.Test.SeqTest.SkipWhile();
+            Pit.Test.SeqTest.PairWise();
+            Pit.Test.SeqTest.Scan();
+            Pit.Test.SeqTest.FindIndex();
+            Pit.Test.SeqTest.TryFindIndex();
+            Pit.Test.SeqTest.ToList();
+            Pit.Test.SeqTest.OfList();
+            Pit.Test.SeqTest.ToArray();
+            Pit.Test.SeqTest.Sum();
+            Pit.Test.SeqTest.SumBy();
+            Pit.Test.SeqTest.Average();
+            Pit.Test.SeqTest.AverageBy();
+            Pit.Test.SeqTest.Min();
+            Pit.Test.SeqTest.MinBy();
+            Pit.Test.SeqTest.Max();
+            Pit.Test.SeqTest.MaxBy();
+            Pit.Test.SeqTest.ForAll2();
+            Pit.Test.SeqTest.Exists2();
+            Pit.Test.SeqTest.Head();
+            Pit.Test.SeqTest.GroupBy();
+            Pit.Test.SeqTest.CountBy();
+            Pit.Test.SeqTest.Distinct();
+            Pit.Test.SeqTest.DistinctBy();
+            Pit.Test.SeqTest.Sort();
+            Pit.Test.SeqTest.SortBy();
+            Pit.Test.SeqTest.Windowed();
+            Pit.Test.SeqTest.ReadOnly();
+        }
+
+        function listTest() {
+            Pit.Test.ListTest.Declare1();
+            Pit.Test.ListTest.Declare2();
+            Pit.Test.ListTest.Declare3();
+            Pit.Test.ListTest.AttachElements();
+            Pit.Test.ListTest.ConcatenateElements();
+            Pit.Test.ListTest.Properties();
+            Pit.Test.ListTest.Recursion1();
+            Pit.Test.ListTest.Recursion2();
+            Pit.Test.ListTest.BooleanOperation();
+            Pit.Test.ListTest.Exists2();
+            Pit.Test.ListTest.ForAll();
+            Pit.Test.ListTest.ForAll2();
+            Pit.Test.ListTest.Sort();
+            Pit.Test.ListTest.SortBy();
+            Pit.Test.ListTest.Find();
+            Pit.Test.ListTest.Pick();
+            Pit.Test.ListTest.TryFind();
+            Pit.Test.ListTest.ArithemeticOperations();
+            Pit.Test.ListTest.Zip();
+            Pit.Test.ListTest.Zip3();
+            Pit.Test.ListTest.UnZip();
+            Pit.Test.ListTest.UnZip3();
+            Pit.Test.ListTest.Map();
+            Pit.Test.ListTest.Map3();
+            Pit.Test.ListTest.Mapi();
+            Pit.Test.ListTest.Mapi2();
+            Pit.Test.ListTest.Collect();
+            Pit.Test.ListTest.Filter();
+            Pit.Test.ListTest.Choose();
+            Pit.Test.ListTest.Append();
+            Pit.Test.ListTest.Concat();
+            Pit.Test.ListTest.Fold();
+            Pit.Test.ListTest.Fold2();
+            Pit.Test.ListTest.Fold2_2();
+            Pit.Test.ListTest.FoldBack();
+            Pit.Test.ListTest.FoldBack2();
+            Pit.Test.ListTest.Reduce();
+        }
+
+        function eventTest() {
+            Pit.Test.EventsTest.Add();
+            Pit.Test.EventsTest.Map();
+            Pit.Test.EventsTest.Choose();
+            Pit.Test.EventsTest.Filter();
+            Pit.Test.EventsTest.Merge();
+            Pit.Test.EventsTest.PairWise();
+            Pit.Test.EventsTest.Partition();
+            Pit.Test.EventsTest.Scan();
+            Pit.Test.EventsTest.Split();
+            Pit.Test.Event2Tests.Add();
+            Pit.Test.Event2Tests.Map();
+            Pit.Test.Event2Tests.Choose();
+            Pit.Test.Event2Tests.Filter();
+            Pit.Test.Event2Tests.Merge();
+            Pit.Test.Event2Tests.PairWise();
+            Pit.Test.Event2Tests.Partition();
+            Pit.Test.Event2Tests.Scan();
+            Pit.Test.Event2Tests.Split();
+            Pit.Test.ObservableTests.Add();
+            Pit.Test.ObservableTests.Map();
+            Pit.Test.ObservableTests.Choose();
+            Pit.Test.ObservableTests.Filter();
+            Pit.Test.ObservableTests.PairWise();
+            Pit.Test.ObservableTests.Partition();
+            Pit.Test.ObservableTests.Scan();
+            Pit.Test.ObservableTests.Split();
+            Pit.Test.ObservableTests.Merge();
+        }
+
+        function setTests() {
+            Pit.Test.SetTests.Create();
+            Pit.Test.SetTests.Add();
+            Pit.Test.SetTests.AddOp();
+            Pit.Test.SetTests.Contains();
+            Pit.Test.SetTests.Exists();
+            Pit.Test.SetTests.Filter();
+            Pit.Test.SetTests.Difference();
+            Pit.Test.SetTests.DifferenceOp();
+            Pit.Test.SetTests.Fold();
+            Pit.Test.SetTests.FoldBack();
+            Pit.Test.SetTests.ForAll();
+            Pit.Test.SetTests.Intersect();
+            Pit.Test.SetTests.IsEmpty();
+            Pit.Test.SetTests.IsProperSubset();
+            Pit.Test.SetTests.IsProperSuperset();
+            Pit.Test.SetTests.Iterate();
+            Pit.Test.SetTests.Map();
+            Pit.Test.SetTests.MaxElement();
+            Pit.Test.SetTests.MinElement();
+            Pit.Test.SetTests.OfArray();
+            Pit.Test.SetTests.OfList();
+            Pit.Test.SetTests.OfSeq();
+            Pit.Test.SetTests.Partition();
+            Pit.Test.SetTests.Remove();
+            Pit.Test.SetTests.Singleton();
+            Pit.Test.SetTests.Union();
+            Pit.Test.SetTests.UnionMany();
+            Pit.Test.SetTests.IntersectMany();
+        }
+
+    </script>
+    <div>
+        <input type="button" name="test" value="Start Array Tests" onclick="arrayTest()" />
+        <input type="button" name="test" value="Start Seq Tests" onclick="seqTest()" />
+        <input type="button" name="test" value="Start List Tests" onclick="listTest()" />
+        <input type="button" name="test" value="Start Set Tests" onclick="setTests()" />
+        <input type="button" name="test" value="Start Event Tests" onclick="eventTest()" />
+    </div>
+</body>
+</html>

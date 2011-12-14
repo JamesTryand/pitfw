@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="pit.js" type="text/javascript"></script>
+    <script src="assert.js" type="text/javascript"></script>
+    <script src="js/pit.core.js" type="text/javascript"></script>
+    <script src="js/pit.dom.js" type="text/javascript"></script>
+    <!--<script src="js/operators.js" type="text/javascript"></script>
+    <script src="js/activepatterns.js" type="text/javascript"></script>
+    <script src="js/array.js" type="text/javascript"></script>
+    <script src="js/list.js" type="text/javascript"></script>
+    <script src="js/seq_helpers.js" type="text/javascript"></script>
+    <script src="js/seq.js" type="text/javascript"></script>
+    <script src="js/event.js" type="text/javascript"></script>
+    <script src="tests/trywith_tests.js" type="text/javascript"></script>-->
+    <!--<script src="tests/jsonparser.js" type="text/javascript"></script>-->
+    <script type="text/javascript">
+        function test() {
+            /*var s1 = Pit.FSharp.Core.Operators.op_PipeRight(Pit.FSharp.Core.Operators.CreateSequence(Pit.FSharp.Core.Operators.op_Range(1)(10)))(function (source) {
+            return Pit.FSharp.Collections.SeqModule.ToArray(source);
+            });
+            console.log(s1);
+            var s2 = Pit.FSharp.Core.Operators.op_PipeRight(Pit.FSharp.Core.Operators.CreateSequence(Pit.FSharp.Core.Operators.op_RangeStep(10)(-1)(1)))(function (source) {
+            return Pit.FSharp.Collections.SeqModule.ToArray(source);
+            });
+            console.log(s2);
+            var s1 = Pit.FSharp.Collections.ArrayModule.OfList(Pit.FSharp.Collections.SeqModule.ToList(Pit.FSharp.Core.Operators.CreateSequence(Pit.FSharp.Core.Operators.op_RangeStep(2)(2)(8))));
+            console.log(s1);
+            var s2 = Pit.FSharp.Collections.ArrayModule.OfList(Pit.FSharp.Collections.SeqModule.ToList(Pit.FSharp.Core.Operators.CreateSequence(Pit.FSharp.Core.Operators.op_RangeStep(2)(2)(5))));
+            console.log(s2);*/
+            var sets = Pit.FSharp.Core.Operators.op_PipeRight(Pit.FSharp.Core.Operators.CreateSequence(Pit.FSharp.Collections.SeqModule.Delay(function () {
+                return Pit.FSharp.Collections.SeqModule.Map(function (i) {
+                    var l = Pit.FSharp.Collections.ArrayModule.OfList(Pit.FSharp.Collections.SeqModule.ToList(Pit.FSharp.Core.Operators.CreateSequence(Pit.FSharp.Core.Operators.op_RangeStep(i)(i)(5))));
+                    return l;
+                })(Pit.FSharp.Core.Operators.op_Range(2)(5));
+            })))(function (source) {
+                return Pit.FSharp.Collections.SeqModule.ToArray(source);
+            });
+            console.log(sets);
+        }
+    </script>
+
+    <input type="button" name="test" value="Start Array Tests" onclick="test()" />
+    <div id="check">
+    </div>
+</body>
+</html>

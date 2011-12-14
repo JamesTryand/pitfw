@@ -1,0 +1,2 @@
+- F# / Pit Silverlight REPL uses custom FSharp.Core.dll based on the new compiler source from http://fsharppowerpack.codeplex.com/
+- Updated reference dlls can be found in "reference" folder

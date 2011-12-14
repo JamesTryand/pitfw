@@ -1,0 +1,99 @@
+﻿namespace Pit.Rx
+
+    /// Pit reactive extensions demo.
+    module RxSample =
+        open Pit
+        open Pit.Dom
+        open Pit.Javascript
+        open Pit.Dom.Html5
+
+        /// Observable extensions using HTML DOM window.setTimeout
+        module Observable =
+            open Pit.Dom
+            open Pit
+
+            /// Simple implementation of IObserver<'T>, Since we are using ReflectedDefinitionAttribute, we won't be able to use Object expressions
+            type BasicObserver<'T> [<Js>](next:'T->unit, error: exn->unit, completed: unit->unit) =
+                let mutable stopped = false
+                interface IObserver<'T> with
+                    [<Js>]
+                    member x.OnNext(args)   = next args
+                    [<Js>]
+                    member x.OnError(e)     = error(e)
+                    [<Js>]
+                    member x.OnCompleted()  = completed()
+
+            /// Simple implementation of IObservable<'T>
+            type BasicObservable<'T> [<Js>](f: IObserver<'T> -> IDisposable) =
+                interface IObservable<'T> with
+                    [<Js>]
+                    member x.Subscribe(observer: IObserver<'T>) = f(observer)
+
+            /// Wrapper function to create an IObservable
+            [<Js>]
+            let mkObservable (f: IObserver<'T> -> IDisposable) = new BasicObservable<_>(f) :> IObservable<_>
+
+            /// Wrapper function to create an IObserver
+            [<Js>]
+            let mkObserver (n: 'T -> unit) (e: exn -> unit) (c: unit -> unit) = new BasicObserver<_>(n, e, c) :> IObserver<_>
+
+            /// Observable function that will invoke the lambda function.
+            [<Js>]
+            let invoke f (w:IObservable<'T>) =
+                mkObservable(
+                    fun observer ->
+                        let obs =
+                            mkObserver
+                                (fun v  -> f(fun () -> observer.OnNext(v)) )
+                                (fun e  -> f(fun () -> observer.OnError(e)))
+                                (fun () -> f(fun () -> observer.OnCompleted()))
+                        w.Subscribe(obs)
+                )
+
+            /// Delays the execution of the Observable using window.SetTimeout
+            /// Useful in creating a simple time delays to the observable events
+            [<Js>]
+            let delay milliseconds (w:IObservable<'T>) =
+                let f g = (window.SetTimeout((fun () -> g()), milliseconds) |> ignore)
+                invoke f w
+
+        /// Wireup function that hooks to the DOM elements mouse events using Observable module
+        [<Js>]
+        let wireup (i:int) (el:DomElement) (mouseMove:IEvent<HtmlEventArgs>) =
+            mouseMove
+            |> Observable.map(fun e -> e.ClientX, e.ClientY)
+            |> Observable.delay(i * 100)
+            |> Observable.subscribe(fun (x,y) ->
+                el.Style.Left <- x.ToString() + "px"
+                el.Style.Top  <- y.ToString() + "px"
+            )
+            |> ignore
+
+        /// Create a list of string elements based on the given string and wires up the DOM mouse events
+        [<Js>]
+        let trackMouse (str:string) (div: DomElement) =
+            div.InnerHTML <- ""
+            let msg = new JsString(str)
+            let mouseMove = div |> Event.mousemove
+            for i = 0 to msg.Length - 1 do
+                let c = msg.CharAt(i)
+                let closure = i + 1
+                let el = document.CreateElement("span")
+                el.InnerHTML <- c
+                el.Style.Position <- "absolute"
+                div.AppendChild(el)
+                wireup i el mouseMove
+
+        /// Entry point for the application
+        /// Creates an inner div with fixed width and height, then populates it with a list of span elements
+        [<DomEntryPoint>]
+        [<Js>]
+        let main() =
+            let div = document.GetElementById("maindiv")
+            let el  = document.CreateElement("div")
+            el.Style.Width <- "500px"
+            el.Style.Height <- "500px"
+            el.Style.Border <- "1px solid black"
+            el.Style.Background <- "orange"
+            div.AppendChild(el)
+            trackMouse "Time Flies" el

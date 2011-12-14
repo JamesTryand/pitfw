@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9075ed59-7975-4e2f-a44e-35fe8b4cabc8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Pit.Core</RootNamespace>
+    <AssemblyName>Pit.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Name>Pit.Core</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\Debug\Pit.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\Release\Pit.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\activexobject.fs" />
+    <Compile Include="Core\exception.fs" />
+    <Compile Include="Core\jsglobal.fs" />
+    <Compile Include="Core\jsarray.fs" />
+    <Compile Include="Core\regexp.fs" />
+    <Compile Include="Core\math.fs" />
+    <Compile Include="Core\date.fs" />
+    <Compile Include="Core\string.fs" />
+    <Compile Include="Core\xmlhttprequest.fs" />
+    <Compile Include="Core\activepatterns.fs" />
+    <Compile Include="Core\primtypes.fs" />
+    <Compile Include="Core\set.fs" />
+    <Compile Include="Core\array.fs" />
+    <Compile Include="Core\array2d.fs" />
+    <Compile Include="Core\list.fs" />
+    <Compile Include="Core\seq.fs" />
+    <Compile Include="Core\fsstring.fs" />
+    <Compile Include="Core\events.fs" />
+    <Compile Include="Core\observable.fs" />
+    <Compile Include="Build\interfaces.fs" />
+    <Compile Include="Dom\Common\HtmlEventArgs.fs" />
+    <Compile Include="Dom\Common\DomStyle.fs" />
+    <Compile Include="Dom\Common\DomObject.fs" />
+    <Compile Include="Dom\Common\DomElement.fs" />
+    <Compile Include="Dom\Common\Event.fs" />
+    <Compile Include="Dom\Elements\DomAnchor.fs" />
+    <Compile Include="Dom\Elements\DomArea.fs" />
+    <Compile Include="Dom\Elements\DomBase.fs" />
+    <Compile Include="Dom\Elements\DomForm.fs" />
+    <Compile Include="Dom\Elements\DomFrameset.fs" />
+    <Compile Include="Dom\Elements\DomImage.fs" />
+    <Compile Include="Dom\Elements\DomInput.fs" />
+    <Compile Include="Dom\Elements\DomLink.fs" />
+    <Compile Include="Dom\Elements\DomMeta.fs" />
+    <Compile Include="Dom\Elements\DomOption.fs" />
+    <Compile Include="Dom\Elements\DomSelect.fs" />
+    <Compile Include="Dom\Elements\DomTextArea.fs" />
+    <Compile Include="Dom\Elements\DomDocument.fs" />
+    <Compile Include="Dom\Elements\DomWindow.fs" />
+    <Compile Include="Dom\Elements\DomTable.fs" />    
+    <Compile Include="Dom\SVG\SVGCommon.fs" />
+    <Compile Include="Dom\SVG\SVGElement.fs" />
+    <Compile Include="Dom\SVG\SVGCircleElement.fs" />
+    <Compile Include="Dom\SVG\SVGEllipseElement.fs" />
+    <Compile Include="Dom\SVG\SVGRectElement.fs" />
+    <Compile Include="Dom\SVG\SVGAElement.fs" />
+    <Compile Include="Dom\SVG\SVGAnimation.fs" />
+    <Compile Include="Dom\SVG\SVGCommonElement.fs" />
+    <Compile Include="Dom\Html5\Html5Common.fs" />
+    <Compile Include="Dom\Html5\Canvas.fs" />
+    <Compile Include="Dom\Html5\DomMedia.fs" />
+    <Compile Include="Dom\HtmlModule.fs" />
+    <Compile Include="AssemblyInfo.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pit.Common\Pit.Common.fsproj">
+      <Name>Pit.Common</Name>
+      <Project>{d8471f0a-b4ac-45fb-a701-bbe23df50814}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

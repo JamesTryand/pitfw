@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="../../pit.js" type="text/javascript"></script>
+    <script src="../../assert.js" type="text/javascript"></script>
+    <script src="../../js/pit.core.js" type="text/javascript"></script>
+    <script src="../../tests/dom_tests.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function clear() {
+            var checkEl = document.getElementById("check");
+            checkEl.innerHTML = "";
+        }
+
+        function testDOMWindow() {
+            Pit.Dom.Tests.DomWindow.DefaultStatus();
+            Pit.Dom.Tests.DomWindow.Document();
+            Pit.Dom.Tests.DomWindow.History();
+            Pit.Dom.Tests.DomWindow.Location();
+            Pit.Dom.Tests.DomWindow.Navigator();
+            Pit.Dom.Tests.DomWindow.InnerHeight();
+            Pit.Dom.Tests.DomWindow.InnerWidth();
+            Pit.Dom.Tests.DomWindow.Length();
+            Pit.Dom.Tests.DomWindow.Name();
+            Pit.Dom.Tests.DomWindow.OuterHeightTest();
+            Pit.Dom.Tests.DomWindow.OuterWidthTest();
+            Pit.Dom.Tests.DomWindow.PageXOffsetTest();
+            Pit.Dom.Tests.DomWindow.PageYOffsetTest();
+            Pit.Dom.Tests.DomWindow.Parent();
+            Pit.Dom.Tests.DomWindow.Screen();
+            Pit.Dom.Tests.DomWindow.ScreenLeft();
+            Pit.Dom.Tests.DomWindow.ScreenTop();
+            Pit.Dom.Tests.DomWindow.ScreenX();
+            Pit.Dom.Tests.DomWindow.ScreenY();
+            Pit.Dom.Tests.DomWindow.Self();
+            Pit.Dom.Tests.DomWindow.Status();
+            Pit.Dom.Tests.DomWindow.Top();
+        }
+
+        function testDOMDocument() {
+            Pit.Dom.Tests.DomDocument.Body();
+            Pit.Dom.Tests.DomDocument.Cookie();
+            Pit.Dom.Tests.DomDocument.DocumentMode();
+            Pit.Dom.Tests.DomDocument.DocumentUri();
+            Pit.Dom.Tests.DomDocument.Domain();
+            Pit.Dom.Tests.DomDocument.LastModified();
+            Pit.Dom.Tests.DomDocument.ReadyState();
+            Pit.Dom.Tests.DomDocument.Title();
+            Pit.Dom.Tests.DomDocument.Referrer();
+            Pit.Dom.Tests.DomDocument.Url();
+            Pit.Dom.Tests.DomDocument.GetElementById();
+            Pit.Dom.Tests.DomDocument.GetElementsByName();
+            Pit.Dom.Tests.DomDocument.GetElementsByTagName();
+        }
+
+        function testDOMOption() {
+            Pit.Dom.Tests.DomOptionTests.DomOptionSetup();
+            Pit.Dom.Tests.DomOptionTests.DefaultSelected();
+            Pit.Dom.Tests.DomOptionTests.Form();
+            Pit.Dom.Tests.DomOptionTests.Index();
+            Pit.Dom.Tests.DomOptionTests.Selected();
+            Pit.Dom.Tests.DomOptionTests.Text();
+            Pit.Dom.Tests.DomOptionTests.Value();
+        }
+
+        function testDOMSelect() {
+            Pit.Dom.Tests.DomSelectTests.DomSelectSetup();
+            Pit.Dom.Tests.DomSelectTests.Form();
+            Pit.Dom.Tests.DomSelectTests.Length();
+            Pit.Dom.Tests.DomSelectTests.Multiple();
+            Pit.Dom.Tests.DomSelectTests.Name();
+            Pit.Dom.Tests.DomSelectTests.SelectedIndex();
+            Pit.Dom.Tests.DomSelectTests.Size();
+            Pit.Dom.Tests.DomSelectTests.Type();
+            Pit.Dom.Tests.DomSelectTests.Options();
+        }
+
+        function testDOMTextArea() {
+            Pit.Dom.Tests.DomTextAreaTests.Setup();
+            Pit.Dom.Tests.DomTextAreaTests.ColsRows();
+            Pit.Dom.Tests.DomTextAreaTests.DefaultValue();
+            Pit.Dom.Tests.DomTextAreaTests.IsReadOnly();
+            Pit.Dom.Tests.DomTextAreaTests.Type();
+            Pit.Dom.Tests.DomTextAreaTests.Value();
+        }
+
+        function testAnchors() {
+            Pit.Dom.Tests.DomAnchorTests.DomAnchorSetup();
+            Pit.Dom.Tests.DomAnchorTests.Charset();
+            Pit.Dom.Tests.DomAnchorTests.Href();
+            Pit.Dom.Tests.DomAnchorTests.HrefLang();
+            Pit.Dom.Tests.DomAnchorTests.Name();
+            Pit.Dom.Tests.DomAnchorTests.Rel();
+            Pit.Dom.Tests.DomAnchorTests.Rev();
+            Pit.Dom.Tests.DomAnchorTests.Target();
+            Pit.Dom.Tests.DomAnchorTests.Type();
+        }
+
+        function testAll() {
+            clear();
+            testDOMWindow();
+            clear();
+            testDOMDocument();
+            clear();
+            testDOMOption();
+            clear();
+            testDOMSelect();
+            clear();
+            testDOMTextArea();
+            clear();
+            testAnchors();
+        }
+
+    </script>
+
+    <input type="button" name="test" value="Start DOM Tests" onclick="testAll()" />
+
+    <div id="check">
+    </div>
+</body>
+</html>
