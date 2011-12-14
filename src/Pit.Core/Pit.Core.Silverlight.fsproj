@@ -40,10 +40,10 @@
     <DocumentationFile>bin\Release\Pit.Core.Silverlight.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core">
-      <HintPath>$(ProgramFiles)\Microsoft F#\Silverlight\Libraries\Client\$(SilverlightVersion)\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\demos\repl\sl\reference\FSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
@@ -104,7 +104,6 @@
     <Compile Include="Dom\Html5\Canvas.fs" />
     <Compile Include="Dom\Html5\DomMedia.fs" />
     <Compile Include="Dom\HtmlModule.fs" />
-    
     <Compile Include="AssemblyInfo.fs" />
   </ItemGroup>
   <ItemGroup>

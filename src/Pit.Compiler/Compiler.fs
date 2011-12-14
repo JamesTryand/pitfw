@@ -58,15 +58,14 @@ module PitCodeCompiler =
         if er.Length = 0 then
             use fs = File.Create(outputfile)
             use sw = new StreamWriter(fs)
-            sw.Write(js)
-            (*js |> Seq.iter(fun t ->
-                if formatJs then
-                    let bjs = new JsBeautify(t, new JsBeautifyOptions())
-                    let b = bjs.GetResult()
-                    sw.Write(b)
-                else
-                    sw.Write(t)
-            )*)
+            //sw.Write(js)
+            if formatJs then
+                let bjs = new JsBeautify(js, new JsBeautifyOptions())
+                let b = bjs.GetResult()
+                sw.Write(b)
+            else
+                sw.Write(js)
+            
             printfn "Generated Output File %s" outputfile
         else
             eprintfn "%A" er
@@ -86,13 +85,10 @@ module PitCodeCompiler =
             //let res =  Seq.toArray(js)
             use fs = File.Create(outputfile)
             use sw = new StreamWriter(fs)
-            sw.Write(js)
-            (*res |> Seq.iter(fun t ->
-                if formatJs then
-                    let bjs = new JsBeautify(t, new JsBeautifyOptions())
-                    let b = bjs.GetResult()
-                    sw.Write(b)
-                else
-                    sw.Write(t)
-            )*)
+            if formatJs then
+                let bjs = new JsBeautify(js, new JsBeautifyOptions())
+                let b = bjs.GetResult()
+                sw.Write(b)
+            else
+                sw.Write(js)
             printfn "Generated Output File %s" outputfile

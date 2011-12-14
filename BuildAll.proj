@@ -3,7 +3,7 @@
   <PropertyGroup>
     <DestFolder>build\Pit.Setup\ProductBuild\</DestFolder>
     <Configuration>Release</Configuration>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>0.0.0.2</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,11 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <FilesToInclude Include="src\Scripts\Pit.js"/>
-    <FilesToInclude Include="docs\UserGuide.pdf" />
+	<FilesToInclude Include="src\Scripts\Pit.Core.min.js"/>
+    <FilesToInclude Include="docs\ug.docx" />
     <ProjectsToBuild Include="src\Pit.Common\Pit.Common.fsproj"/>
     <ProjectsToBuild Include="src\Pit.Common\Pit.Common.dbg.fsproj" />
     <ProjectsToBuild Include="src\Pit.Common\Pit.Common.Silverlight.fsproj"/>
     <ProjectsToBuild Include="src\Pit.Compiler.JsBeautify\Pit.Compiler.JsBeautify.csproj"/>
+	<ProjectsToBuild Include="src\Pit.Compiler.JsBeautify\Pit.Compiler.JsBeautify.Silverlight.csproj"/>
     <ProjectsToBuild Include="src\Pit.Core\Pit.Core.fsproj"/>
     <ProjectsToBuild Include="src\Pit.Core\Pit.Core.Silverlight.fsproj" />
     <ProjectsToBuild Include="src\Pit.Core.dbg\Pit.Core.dbg.fsproj"/>

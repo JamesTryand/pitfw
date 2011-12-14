@@ -15,7 +15,6 @@
     <Property Id="INSTALLLEVEL" Value="100" />
     <Property Id="ALLUSERS" Value="1" />
     <Property Id="TEST" Value="NO" />
-    <Icon Id="icon.ico" SourceFile="..\..\icons\16.ico" />
 
     <Directory Id="TARGETDIR" Name="SourceDir" DiskId="1">
       <Directory Id="ProgramFilesFolder">

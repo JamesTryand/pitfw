@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4a2422aa-2b1d-480e-bb07-7a1d90a5545f}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Pit.Common.dbg</AssemblyName>
+    <AssemblyName>Pit.Common.Silverlight</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,10 +40,10 @@
     <DocumentationFile>bin\Release\Pit.Common.dbg.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core">
-      <HintPath>$(ProgramFiles)\Microsoft F#\Silverlight\Libraries\Client\$(SilverlightVersion)\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\demos\repl\sl\reference\FSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />

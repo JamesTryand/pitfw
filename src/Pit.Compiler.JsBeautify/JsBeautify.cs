@@ -140,12 +140,6 @@ namespace Pit.Compiler.JsBeautify
             current_mode = modes.Pop();
         }
 
-        private bool in_array(object what, ArrayList arr)
-        {
-            return arr.Contains(what);
-
-        }
-
         private bool is_ternary_op()
         {
             int level = 0;
