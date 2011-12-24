@@ -158,3 +158,34 @@ module RecordsTests =
         let p : CustomPoint = { x = 10; y = 20}
         let xy = p.xy
         Assert.AreEqual "Record Member XY" xy 200
+
+    module SomeObject =
+        type t = {
+            connected : bool
+        }
+
+    module State =
+        [<JsObject>]
+        type s = {
+            current : SomeObject.t
+            last    : SomeObject.t option
+        }
+
+        [<JsObject>]
+        type t = {
+            current : s option
+        }
+
+    [<Js>]
+    let handle (t:State.t) =
+        match t.current with
+        | Some(current) ->
+            let t = {t with current = Some({current with last = Some(current.current)})}
+            t
+        | None          -> t
+
+    [<Js>]
+    let RecordWithSomeNone() =
+        let t : State.t = { current = Some({current ={connected=false}; last = None}) }
+        let t = handle(t)
+        Assert.AreEqual "Record With Option and Match" t.current.Value.current.connected false
