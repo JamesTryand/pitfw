@@ -2,11 +2,6 @@
 open Pit
 open System.Windows.Browser
 
-    type XMLHttpScriptableObject(fn:unit->unit) =
-        [<ScriptableMember>]
-        member x.Invoke() =
-            fn()
-
     type XMLHttpRequest() =
         static do
             // some problem when creating ActiveXObject thru Silverlight, so we just use this below generic method to get the object
@@ -51,7 +46,7 @@ open System.Windows.Browser
 
         member x.OnReadyStateChange
             with set(v:unit->unit) =
-                let so = new XMLHttpScriptableObject(v)
+                let so = new ScriptableInvoker(v)
                 HtmlPage.RegisterScriptableObject("xmlhttp", so)
                 // uses a proxy method from JS to invoke a proxy object
                 // when then delegates the call to the actual func
