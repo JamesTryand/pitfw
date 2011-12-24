@@ -94,10 +94,17 @@ module AstParser =
             | Patterns.NewRecord(i, args) ->
                 let newArgs = [for carg in args ->
                                 match carg with
-                                | Var x when (lets.ContainsKey x)           -> lets |>Map.find x
-                                | Coerce(Var x, _) when lets.ContainsKey x  -> lets |>Map.find x
+                                | Var x when (lets.ContainsKey x)           -> lets |> Map.find x
+                                | Coerce(Var x, _) when lets.ContainsKey x  -> lets |> Map.find x
                                 | _ -> carg]
                 Expr.NewRecord(i, newArgs)
+            | Patterns.NewUnionCase(i, args) ->
+                let newArgs = [for carg in args ->
+                                match carg with
+                                | Var x when (lets.ContainsKey x)           -> lets |> Map.find x
+                                | Coerce(Var x, _) when lets.ContainsKey x  -> lets |> Map.find x
+                                | _ -> carg]
+                Expr.NewUnionCase(i, newArgs)
             | _ -> arg
 
         [for a in args' -> (loop a Map.empty)]
@@ -190,7 +197,7 @@ module AstParser =
                         let args1 = (getArgs [value]) |> List.head
                         let res = traverse args1 map
                         let decl = DeclareStatement(vr, res)
-                        let after = traverse ret map
+                        let after = traverse ret newMap
                         let afterResult =
                             match after with
                             | Block(arr) -> arr
@@ -700,7 +707,8 @@ module AstParser =
                 | None -> Unit
 
             | Patterns.NewUnionCase(i, l) ->
-                New(Variable(getDeclaredTypeName(i.DeclaringType, i.Name)) , [|for a in l do yield traverse a map|])
+                let args = getArgs l
+                New(Variable(getDeclaredTypeName(i.DeclaringType, i.Name)) , [|for a in args do yield traverse a map|])
 
             | Patterns.UnionCaseTest(expr, info) ->
                 let left = traverse expr map

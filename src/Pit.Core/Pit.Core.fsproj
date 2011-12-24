@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Core\activexobject.fs" />
     <Compile Include="Core\exception.fs" />
+    <Compile Include="Core\JSON.fs" />
     <Compile Include="Core\jsglobal.fs" />
     <Compile Include="Core\jsarray.fs" />
     <Compile Include="Core\regexp.fs" />
@@ -77,7 +78,7 @@
     <Compile Include="Dom\Elements\DomTextArea.fs" />
     <Compile Include="Dom\Elements\DomDocument.fs" />
     <Compile Include="Dom\Elements\DomWindow.fs" />
-    <Compile Include="Dom\Elements\DomTable.fs" />    
+    <Compile Include="Dom\Elements\DomTable.fs" />
     <Compile Include="Dom\SVG\SVGCommon.fs" />
     <Compile Include="Dom\SVG\SVGElement.fs" />
     <Compile Include="Dom\SVG\SVGCircleElement.fs" />
@@ -89,6 +90,7 @@
     <Compile Include="Dom\Html5\Html5Common.fs" />
     <Compile Include="Dom\Html5\Canvas.fs" />
     <Compile Include="Dom\Html5\DomMedia.fs" />
+    <Compile Include="Dom\Html5\WebSocket.fs" />
     <Compile Include="Dom\HtmlModule.fs" />
     <Compile Include="AssemblyInfo.fs" />
   </ItemGroup>

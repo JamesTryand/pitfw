@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
-      <HintPath>..\..\demos\repl\sl\reference\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\..\pitdemos\repl\sl\reference\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Core\activexobject.fs" />
     <Compile Include="Core\exception.fs" />
+    <Compile Include="Core\JSON.fs" />
     <Compile Include="Core\jsglobal.fs" />
     <Compile Include="Core\jsarray.fs" />
     <Compile Include="Core\regexp.fs" />

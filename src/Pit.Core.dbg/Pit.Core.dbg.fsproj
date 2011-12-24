@@ -55,6 +55,7 @@
     <Compile Include="Helpers\coreutils.fs" />
     <Compile Include="Core\activexobject.fs" />
     <Compile Include="Core\common.fs" />
+    <Compile Include="Core\JSON.fs" />
     <Compile Include="Core\jsarray.fs" />
     <Compile Include="Core\regex.fs" />
     <Compile Include="Core\date.fs" />
@@ -81,7 +82,7 @@
     <Compile Include="Dom\Elements\DomSelect.fs" />
     <Compile Include="Dom\Elements\DomTextArea.fs" />
     <Compile Include="Dom\Elements\DomDocument.fs" />
-    <Compile Include="Dom\Elements\DomWindow.fs" />    
+    <Compile Include="Dom\Elements\DomWindow.fs" />
     <Compile Include="Dom\Elements\DomTable.fs" />
     <Compile Include="Dom\SVG\SVGCommon.fs" />
     <Compile Include="Dom\SVG\SVGElement.fs" />
@@ -94,6 +95,7 @@
     <Compile Include="Dom\Html5\Html5Common.fs" />
     <Compile Include="Dom\Html5\Canvas.fs" />
     <Compile Include="Dom\Html5\DomMedia.fs" />
+    <Compile Include="Dom\Html5\WebSocket.fs" />
     <Compile Include="Dom\HtmlModule.fs" />
     <Compile Include="AssemblyInfo.fs" />
   </ItemGroup>

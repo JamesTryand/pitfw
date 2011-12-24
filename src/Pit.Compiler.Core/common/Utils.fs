@@ -207,7 +207,12 @@ module Utils =
                     match getJsIgnoreAttr(ty) with
                     | None      -> ty.Namespace
                     | Some _    -> ""
-                let name = if ca.Length > 1 && tType.MemberType = MemberTypes.Method then (sprintf "%s.%s" aliasAttrib.Name ((ca.[1]:?>CompileToAttribute).Name)) else aliasAttrib.Name
+                let name =
+                    if ca.Length > 1 && tType.MemberType = MemberTypes.Method then
+                        (sprintf "%s.%s" aliasAttrib.Name ((ca.[1]:?>CompileToAttribute).Name))
+                    elif ca.Length = 1 && tType.MemberType = MemberTypes.Method then
+                        sprintf "%s.%s" aliasAttrib.Name name
+                    else aliasAttrib.Name
                 getMemberAccess2 (name, null, nameSpace)
             | :? CompileToAttribute ->
                 let compileAttrib = ca.[0] :?> CompileToAttribute
