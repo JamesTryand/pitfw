@@ -27,6 +27,10 @@ open System.Windows.Browser
                 elif aty.Equals(typeof<double>) then v :?> float
                 else v :?> 'a*)
 
+        member x.Item
+            with get(i:string) = x.arraySO.GetProperty(i) :?> 'a
+            and set (i:string) (v:'a) = x.arraySO.SetProperty(i,v)
+
         member x.JoinAll() =
             x.arraySO.Invoke("join", null) :?> string
 

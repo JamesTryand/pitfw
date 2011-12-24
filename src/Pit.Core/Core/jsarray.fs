@@ -21,6 +21,12 @@ open Pit
                 items.[0]
             and set (index:int) (value:'a) = ()
 
+        member x.Item
+            with get(key:string) =
+                let items : 'a[] = Array.zeroCreate(0)
+                items.[0]
+            and set (key:string) (value:'a) = ()
+
         [<CompileTo("join")>]
         member x.JoinAll() = ""
 
