@@ -17,10 +17,6 @@ type DomElement =
                 style  = new DomStyle(htmlEl.GetProperty<ScriptObject>("style"))
             }
 
-    /// To be used only for browser invocations by libraries, this will not compile to JS.
-    member x.InternalScriptObject
-        with get() = x.htmlEl
-
     member x.AccessKey
         with get() = x.htmlEl.GetProperty<string>("accessKey")
         and set(v : string) = x.htmlEl.SetProperty("accessKey", box(v))
