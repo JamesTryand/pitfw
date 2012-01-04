@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Compiler.CodeDom">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\FSharpPowerPack-2.0.0.0\bin\FSharp.Compiler.CodeDom.dll</HintPath>
+      <HintPath>..\..\lib\FSharp.Compiler.CodeDom.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
