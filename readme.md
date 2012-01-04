@@ -69,6 +69,11 @@ Additionally, If someone is interested in creating component controls using Pit,
   * Debugging support for F# code
   * Build support with Pit compiler
   * JavaScript error notification
+
+## Building Pit Source:
+We recently added [Fake](https://github.com/forki/FAKE "Fake") scripts (build tool for F#). Run the build.bat to execute the scripts, all related dlls will be placed in the bin\debug or bin\release folder.
+
+Additionally to create Vsix and setup, use the run.bat which executes a set of MSbuild project files. This requires additional setup to be installed, since we create VS Extensions, Please download that [here](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2680http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2680 "link").
      
 ##How to contribute?
 If you would like to contribute to the Pit project you could take up any of the features that is available in the roadmap / any custom feature that you think would provide nice value. You can email mohamedsuhaiba@live.in for dicussing and getting started with it. Small note here, Pit team may be working on some of the features already, so it's at best to check once before you fork off and start on it.
