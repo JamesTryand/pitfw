@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
-      <HintPath>..\..\..\pitdemos\repl\sl\reference\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\demos\repl\sl\reference\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
